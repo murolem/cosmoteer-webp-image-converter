@@ -6,7 +6,7 @@ Features:
 - Resizing based on largest side.
 - Resizing based on amount of pixels (megapixels).
 
-This is specifically for processing exported ship images from Cosmoteer, but can be used for any other image as well.
+This was made for processing exported ship images from Cosmoteer, but can be used for anything else really.
 
 # Installation
 
@@ -36,7 +36,7 @@ By default, for each image:
 
 If an image is already a webp image, it would be processed anyway.
 
-For further configuring, type:
+All of these options are configurable. To see all the options, type:
 
 ```bash
 python main.py --help
@@ -44,5 +44,5 @@ python main.py --help
 
 All options:
 ```bash
-python main.py -q <integer> -r <integer> -mp <integer> --keep-whitespace
+python main.py -q <integer> -r <integer> --mp <integer> --keep-whitespace --keep-original
 ```
