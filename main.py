@@ -68,7 +68,7 @@ def generate_unoccupied_filename(dirpath: str, filename: str) -> str:
 
     original_filepath = os.path.join(dirpath, filename)
     if not os.path.exists(original_filepath):
-        return original_filepath
+        return filename
 
     filename_pathobj = Path(filename)
     filename_wout_ext = filename_pathobj.stem
