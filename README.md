@@ -29,20 +29,16 @@ python main.py
 ```
 
 By default, for each image:
-- Quality is set to `100`.
+- Quality is set to `90`.
 - Extra whitespace is trimmed.
 - If image is larger than 64 MP, it will be shrunk until it's equal to or below the limit.
-- After processing, the original image **is removed**.
+- Original images are **not deleted**.
+- Processing is run in 5 parallel tasks.
 
 If an image is already a webp image, it would be processed anyway.
 
-All of these options are configurable. To see all the options, type:
+Above options are configurable. To see all the options, type:
 
 ```bash
 python main.py --help
-```
-
-All options:
-```bash
-python main.py -q <integer> -r <integer> --mp <integer> --keep-whitespace --keep-original
 ```

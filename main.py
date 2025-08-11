@@ -10,18 +10,18 @@ from pathlib import Path
 arg_parser = argparse.ArgumentParser(
     formatter_class=argparse.ArgumentDefaultsHelpFormatter
 )
-arg_parser.add_argument("-q", help="WEBP image quality, from 0 to 100", default=100, type=int)
+arg_parser.add_argument("-q", help="WEBP image quality, from 0 to 100", default=90, type=int)
 arg_parser.add_argument("-r", help="Upper bound for any image dimension (width or height). Images with dimensions larger than the limit will be shrunk while preserving aspect-ratio. By default, there's no limit.", default=0, type=int)
 arg_parser.add_argument("--mp", help="Upper bound for megapixel size of an image. Images larger than the limit will be shrunk while preserving aspect-ratio.", default=64, type=int)
 arg_parser.add_argument("--keep-whitespace", help="If set, no whitespace around images will be removed", default=False, action="store_true")
-arg_parser.add_argument("--keep-original", help="If set, the original image file will be kept instead of removing/replacing. In an image is already a .webp file, new image will have a suffix (N) appended.", default=False, action="store_true")
+arg_parser.add_argument("--remove-originals", help="If set, original images will be removed after processing. When not set, if image is a .webp file already, a new image will have a suffix (N).", default=False, action="store_true")
 arg_parser.add_argument("--threads", help="Number of parallel threads for processing.", default=5, type=int)
 args = arg_parser.parse_args()
 
 images_dirname = "images"
 webp_quality = args.q
 remove_whitespace = not args.keep_whitespace
-keep_original = args.keep_original
+keep_original = not args.remove_original
 resize_image = args.r > 0
 resize_image_largest_dimension = args.r
 pixel_count_limit_mp = args.mp
